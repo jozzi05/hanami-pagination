@@ -6,11 +6,11 @@ module Hanami
 
       def initialize(pager)
         @pager = pager
-        @next_page = pager.next_page
         @prev_page = pager.prev_page
         @total = pager.total
         @total_pages = pager.total_pages
         @current_page = pager.current_page
+        @next_page = next_page_value
       end
 
       def current_page?(page)
@@ -37,6 +37,12 @@ module Hanami
 
       def last_page?
         total < 1 || current_page == total_pages
+      end
+
+      private
+
+      def next_page_value
+        current_page + 1 if total_pages >= current_page + 1
       end
     end
   end

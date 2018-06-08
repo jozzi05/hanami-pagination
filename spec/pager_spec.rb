@@ -13,7 +13,7 @@ RSpec.describe Hanami::Pagination::Pager do
     it { expect(pager.next_page).to eq 2 }
 
     context 'on other page' do
-      let(:current_page) { 10 }
+      let(:current_page) { 9 }
       it { expect(pager.next_page).to eq 10 }
     end
   end
