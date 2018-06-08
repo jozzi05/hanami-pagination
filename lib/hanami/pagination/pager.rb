@@ -20,7 +20,7 @@ module Hanami
       end
 
       def total_pages
-        pager.total_pages
+        @total_pages ||= pager.total_pages
       end
 
       def current_page
